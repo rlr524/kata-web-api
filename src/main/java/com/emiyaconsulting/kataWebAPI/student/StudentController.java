@@ -1,20 +1,33 @@
 package com.emiyaconsulting.kataWebAPI.student;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import java.util.Optional;
 
-@RestController
+@RestController("/students")
 public class StudentController {
+    private final StudentRepository studentRepository;
+
+    public StudentController(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
     /**
      * @return ResponseEntity
      */
-    @RequestMapping(value = "/students")
-    public ResponseEntity<ArrayList<Student>> getStudents() {
-        StudentRepository repo = new StudentRepository();
-        return new ResponseEntity<>(repo.getStudents(), HttpStatus.OK);
+    @GetMapping()
+    Iterable<Student> getStudents() {
+        return studentRepository.findAll();
+    }
+
+    /**
+     * @param id - ID of the student
+     * @return Optional
+     */
+    @GetMapping("/{id}")
+    Optional<Student> getStudent(@PathVariable String id) {
+        return studentRepository.findById(id);
     }
 }

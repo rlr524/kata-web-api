@@ -1,9 +1,12 @@
 package com.emiyaconsulting.kataWebAPI.student;
 
+import org.springframework.data.annotation.Id;
+
 import java.time.LocalDate;
 import java.time.Period;
 
 public class Student {
+    @Id
     private String studentId;
     private String lastName;
     private String firstName;
