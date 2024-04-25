@@ -1,6 +1,11 @@
 package com.emiyaconsulting.kataWebAPI.guardian;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Guardian {
+    @Id
     private String guardianId;
     private String lastName;
     private String firstName;
@@ -13,6 +18,9 @@ public class Guardian {
         this.firstName = firstName;
         this.relationship = relationship;
         this.email = email;
+    }
+
+    public Guardian() {
     }
 
     public String getGuardianId() {

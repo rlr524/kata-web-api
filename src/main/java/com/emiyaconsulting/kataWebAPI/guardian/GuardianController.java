@@ -1,7 +1,5 @@
 package com.emiyaconsulting.kataWebAPI.guardian;
 
-import com.emiyaconsulting.kataWebAPI.student.Student;
-import com.emiyaconsulting.kataWebAPI.student.StudentRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;

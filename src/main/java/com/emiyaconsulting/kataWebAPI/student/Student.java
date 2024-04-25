@@ -1,10 +1,12 @@
 package com.emiyaconsulting.kataWebAPI.student;
 
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.time.LocalDate;
 import java.time.Period;
 
+@Entity
 public class Student {
     @Id
     private String studentId;
@@ -26,6 +28,9 @@ public class Student {
         this.sex = sex;
         this.email = email;
         this.age = calculateStudentAge(dateOfBirth);
+    }
+
+    public Student() {
     }
 
     public String getStudentId() {
