@@ -1,0 +1,4 @@
+spring.application.name=kata-web-api
+api.version=v1
+server.servlet.context-path=/api/${api.version}
+spring.datasource.url=
